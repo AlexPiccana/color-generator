@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Colour Generator</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body style="height: 900px;">
+	<div class="row tall">
+		<div class="three columns tall" id="colorBox1"></div>
+		<div class="three columns tall" id="colorBox2"></div>
+		<div class="three columns tall" id="colorBox3"></div>
+		<div class="three columns tall" id="colorBox4"></div>
+		<div class="three columns tall" id="colorBox5"></div>
+	</div>
+</body>
+<footer>
+	<script src="script.js"></script>
+	<script>runColor();</script>
+	<script>
+		document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        runColor();
+    }
+}
+</script>
+</footer>
+</html>

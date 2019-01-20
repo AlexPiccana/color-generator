@@ -140,7 +140,21 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 }
 
 p {
-  margin-top: 0; }
+    color: #1F2D3D;
+    cursor: pointer;
+    font-size: 33px;
+    font-weight: 500;
+    opacity: 0.3;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: opacity .1s ease, color .1s ease, font-size .5s ease, width .5s ease;
+  }
+
+
+p:hover {
+  opacity: 0.7 !important;
+}
 
 
 /* Links

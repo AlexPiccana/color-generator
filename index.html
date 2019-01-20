@@ -3,25 +3,66 @@
 <head>
 	<title>Colour Generator</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
 </head>
-<body style="height: 900px;">
-	<div class="row tall">
-		<div class="three columns tall"><p></p></div>
-		<div class="three columns tall"><p></p></div>
-		<div class="three columns tall"><p></p></div>
-		<div class="three columns tall"><p></p></div>
-		<div class="three columns tall"><p></p></div>
+<body>
+	<div style="height: 800px;">
+
+		<div class="three columns color-box">
+			<div class="text-block">
+				<p class="color-box-rgb clickToCopy ripple">xxx</p>
+				<p class="color-box-hex clickToCopy ripple">xxx</p>
+			</div>
+			<div class="lock-holder">
+				<i class="fas fa-unlock lock-btn"></i>
+			</div>
+		</div>
+
+		<div class="three columns color-box">
+			<div class="text-block">
+				<p class="color-box-rgb clickToCopy ripple">xxx</p>
+				<p class="color-box-hex clickToCopy ripple">xxx</p>
+			</div>
+			<div class="lock-holder">
+				<i class="fas fa-unlock lock-btn"></i>
+			</div>
+		</div>
+
+		<div class="three columns color-box">
+			<div class="text-block">
+				<p class="color-box-rgb clickToCopy ripple">xxx</p>
+				<p class="color-box-hex clickToCopy ripple">xxx</p>
+			</div>
+			<div class="lock-holder">
+				<i class="fas fa-unlock lock-btn"></i>
+			</div>
+		</div>
+
+		<div class="three columns color-box">
+			<div class="text-block">
+				<p class="color-box-rgb clickToCopy ripple">xxx</p>
+				<p class="color-box-hex clickToCopy ripple">xxx</p>
+			</div>
+			<div class="lock-holder">
+				<i class="fas fa-unlock lock-btn"></i>
+			</div>
+		</div>
+
+		<div class="three columns color-box">
+			<div class="text-block">
+				<p class="color-box-rgb clickToCopy ripple">xxx</p>
+				<p class="color-box-hex clickToCopy ripple">xxx</p>
+			</div>
+			<div class="lock-holder">
+				<i class="fas fa-unlock lock-btn"></i>
+			</div>
+		</div>
+
 	</div>
 </body>
 <footer>
-	<script src="script.js"></script>
-	<script>runColor();</script>
-	<script>
-		document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
-        runColor();
-    }
-}
-</script>
+	<script src="colgen.js"></script>
+	<script src="general.js"></script>
 </footer>
 </html>

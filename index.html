@@ -7,61 +7,73 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
 </head>
 <body>
-	<div style="height: 800px;">
+	<div class="top-bar" style="display: flex; align-items: center; justify-content: space-between;">
+		<div class="logo-holder"><img src="logo.png"></div>
+		<div id="rgb-switch" class="hex">
+			<p class="rgb-switch" onclick="swapCode()"><i class="fas fa-exchange-alt" style="padding-right: 10px;"></i> Switch to RGB</p>
+		</div>
+	</div>
+	<div style="height:calc(100vh - 75px);">
 
 		<div class="three columns color-box">
 			<div class="text-block">
-				<p class="color-box-rgb clickToCopy ripple">xxx</p>
-				<p class="color-box-hex clickToCopy ripple">xxx</p>
+				<p class="color-box-name">xxx</p>
+				<p class="color-box-hex">xxx</p>
 			</div>
 			<div class="lock-holder">
 				<i class="fas fa-unlock lock-btn"></i>
 			</div>
+			<div class="clickToCopy"></div>
 		</div>
 
 		<div class="three columns color-box">
 			<div class="text-block">
-				<p class="color-box-rgb clickToCopy ripple">xxx</p>
-				<p class="color-box-hex clickToCopy ripple">xxx</p>
+				<p class="color-box-name">xxx</p>
+				<p class="color-box-hex">xxx</p>
 			</div>
 			<div class="lock-holder">
 				<i class="fas fa-unlock lock-btn"></i>
 			</div>
+			<div class="clickToCopy"></div>
 		</div>
 
 		<div class="three columns color-box">
 			<div class="text-block">
-				<p class="color-box-rgb clickToCopy ripple">xxx</p>
-				<p class="color-box-hex clickToCopy ripple">xxx</p>
+				<p class="color-box-name">xxx</p>
+				<p class="color-box-hex">xxx</p>
 			</div>
 			<div class="lock-holder">
 				<i class="fas fa-unlock lock-btn"></i>
 			</div>
+			<div class="clickToCopy"></div>
 		</div>
 
 		<div class="three columns color-box">
 			<div class="text-block">
-				<p class="color-box-rgb clickToCopy ripple">xxx</p>
-				<p class="color-box-hex clickToCopy ripple">xxx</p>
+				<p class="color-box-name">xxx</p>
+				<p class="color-box-hex">xxx</p>
 			</div>
 			<div class="lock-holder">
 				<i class="fas fa-unlock lock-btn"></i>
 			</div>
+			<div class="clickToCopy"></div>
 		</div>
 
 		<div class="three columns color-box">
 			<div class="text-block">
-				<p class="color-box-rgb clickToCopy ripple">xxx</p>
-				<p class="color-box-hex clickToCopy ripple">xxx</p>
+				<p class="color-box-name">xxx</p>
+				<p class="color-box-hex">xxx</p>
 			</div>
 			<div class="lock-holder">
 				<i class="fas fa-unlock lock-btn"></i>
 			</div>
+			<div class="clickToCopy"></div>
 		</div>
 
 	</div>
 </body>
 <footer>
+	<script src="colors.js"></script>
 	<script src="colgen.js"></script>
 	<script src="general.js"></script>
 </footer>

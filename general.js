@@ -4,6 +4,11 @@ document.body.onkeyup = function(e) {
     }
 };
 
+// set up
+generateBoxID(rect);
+init(colArray, rect);
+
+
 runColor();
 createLockButton();
 

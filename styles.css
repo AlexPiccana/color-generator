@@ -81,18 +81,12 @@
 
 .color-box { 
   height: 100%;
+  padding: 30px 10px 40px;
   position: relative;
   }
 
-.text-block {
-  padding: 10px;
-}
-
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* NOTE
-html is set to 62.5% so that all the REM measurements throughout Skeleton
-are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
@@ -104,18 +98,6 @@ body {
 
 .logo-holder {
   padding-left: 25px;
-}
-
-.rgb-switch {
-  margin: 0 25px 0 0;
-  padding: 5px;
-  cursor: pointer;
-  color: #2f3640;
-  user-select: none;
-}
-
-.rgb-switch:hover {
-  color: #f45150;
 }
 
 .top-bar {
@@ -150,27 +132,25 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 p {
   font-size: 18px;
   font-weight: 600;
+  margin: 0;
   }
 
-.color-box-name, .color-box-hex {
+.text-block p {
   font-size: 33px;
   font-weight: 600;
   opacity: 0.5;
   width: 100%;
   text-align: center;
   transition: opacity .1s ease, color .1s ease, font-size .5s ease, width .5s ease;
+  user-select: none;
 }
 
-.color-box-name:hover, .color-box-hex:hover {
+.text-block p:hover {
   opacity: 1 !important;
 }
 
-.clickToCopy {
-  cursor: pointer;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
+#colorCodeRGB {
+  font-size: 18px;
 }
 
 /* Links
@@ -180,76 +160,84 @@ a {
 a:hover {
   color: #0FA0CE; }
 
-.lock-holder {
-  position: absolute; 
-  bottom: 50px; 
-  width: 100%;
+.icon-holder {
   z-index: 99;
 }
 
-.lock-btn {
+.icon {
   font-size: 50px;
   opacity: 0.5;
-  margin-bottom: 10px;
   cursor: pointer;
-  transform: translateX(-50%);
-  margin-left: 50%;
+  margin: 10px;
 }
 
-.lock-btn:hover {
+.icon:hover {
+  opacity: 1;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  font-size: 12.5px;
+  visibility: hidden;
+  width: 120px;
+  background-color: #3d3e3f;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
   opacity: 1;
 }
 
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
-  list-style: circle inside; }
-ol {
-  list-style: decimal inside; }
+  list-style: none; }
 ol, ul {
   padding-left: 0;
-  margin-top: 0; }
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin: 1.5rem 0 1.5rem 3rem;
-  font-size: 90%; }
+  margin: 0; }
 li {
-  margin-bottom: 1rem; }
+  margin-bottom: 0; }
 
-/* Spacing
+/* Flex
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-button,
-.button {
-  margin-bottom: 1rem; }
-input,
-textarea,
-select,
-fieldset {
-  margin-bottom: 1.5rem; }
-pre,
-blockquote,
-dl,
-figure,
-table,
-p,
-ul,
-ol,
-form {
-  margin-bottom: 2.5rem; }
+.flex {
+  display: flex;
+  list-style: none;
+}
 
-/* Clearing
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.flexRow {
+  flex-direction: row;
+}
 
-/* Self Clearing Goodness */
-.container:after,
-.row:after,
-.u-cf {
-  content: "";
-  display: table;
-  clear: both; }
+.flexColumn {
+  flex-direction: column;
+}
 
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.flexAlignCenter {
+  align-items: center;
+}
+
+.flexJustifySpaced {
+  justify-content: space-between;
+}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

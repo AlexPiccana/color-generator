@@ -89,6 +89,8 @@ runColor = () => {
 			textContrast(c);
 		}
 	});
+	let count = parseInt(document.querySelector('#genCounter').innerHTML);
+	document.querySelector('#genCounter').innerHTML = count + 1;
 };
 
 function colorGeneration(outArr, inArr, amt) {
@@ -146,9 +148,9 @@ applyLock = event => {
 	colArray[tempDiv.id].locked = !colArray[tempDiv.id].locked;
 
 	if(colArray[tempDiv.id].locked) {
-		event.target.parentElement.innerHTML = '<i class="fas fa-lock"></i><span class="tooltiptext">Unlock this Colour</span>';
+		event.target.closest(".lockBtn").innerHTML = '<i class="fas fa-lock"></i><span class="tooltiptext">Unlock this Colour</span>';
 	} else {
-		event.target.parentElement.innerHTML = '<i class="fas fa-unlock"></i><span class="tooltiptext">Lock this Colour</span>';
+		event.target.closest(".lockBtn").innerHTML = '<i class="fas fa-unlock"></i><span class="tooltiptext">Lock this Colour</span>';
 	}
 };
 

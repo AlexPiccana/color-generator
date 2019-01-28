@@ -149,8 +149,33 @@ p {
   opacity: 1 !important;
 }
 
-#colorCodeRGB {
-  font-size: 18px;
+/* Color Codes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.colorCodeRGB {
+  font-size: 18px !important;
+}
+
+.colorCode input {
+  margin-bottom: 10px;
+}
+
+.colorHexInput {
+  font-size: 33px;
+  background: none;
+  width: 220px;
+  font-weight: 600;
+  opacity: 0.5;
+  text-align: center;
+  transition: opacity .1s ease, color .1s ease, font-size .5s ease, width .5s ease;
+  user-select: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.colorHexInput:hover {
+  opacity: 1;
 }
 
 /* Links

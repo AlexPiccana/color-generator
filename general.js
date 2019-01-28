@@ -3,6 +3,7 @@ generateBoxID(rect);
 runColor();
 createLockButton();
 createCopyButton();
+createInputFunctionality();
 
 // Generate
 

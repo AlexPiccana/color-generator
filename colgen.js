@@ -3,59 +3,24 @@ const rect = document.querySelectorAll('.color-box');
 const colorDirectory = colors.colors;
 let colArray = [
 	{
-		"name": "Bara Red",
-		"hex": "#e9546b",
-		"rgb": {
-			"r": 233,
-			"g": 84,
-			"b": 107
-		},
-		"luminance": 86.21810109831925,
-		"locked": false
+		hex: undefined,
+		locked: false
 	},
 	{
-		"name": "Celadon Green",
-		"hex": "#2f847c",
-		"rgb": {
-			"r": 47,
-			"g": 132,
-			"b": 124
-		},
-		"luminance": 80.00677196962766,
-		"locked": false
+		hex: undefined,
+		locked: false
 	},
 	{
-		"name": "Purple Thorn",
-		"hex": "#f0b9be",
-		"rgb": {
-			"r": 240,
-			"g": 185,
-			"b": 190
-		},
-		"luminance": 131.95274618210868,
-		"locked": false
+		hex: undefined,
+		locked: false
 	},
 	{
-		"name": "Raw Cashew Nut",
-		"hex": "#c8beb1",
-		"rgb": {
-			"r": 200,
-			"g": 190,
-			"b": 177
-		},
-		"luminance": 128.14886883620937,
-		"locked": false
+		hex: undefined,
+		locked: false
 	},
 	{
-		"name": "Lorna",
-		"hex": "#658477",
-		"rgb": {
-			"r": 101,
-			"g": 132,
-			"b": 119
-		},
-		"luminance": 84.26022912976204,
-		"locked": false
+		hex: undefined,
+		locked: false
 	}
 ];
 
@@ -66,12 +31,14 @@ generateBoxID = rect => {
 		i++;
 	});
 };
+
 createLockButton = () => {
 	const lockButtons = document.querySelectorAll(".lockBtn");
 	lockButtons.forEach(function(e) {
 		e.addEventListener("click", applyLock)
 	});
 };
+
 createCopyButton = () => {
 	const copyTarget = document.querySelectorAll(".copyBtn");
 	copyTarget.forEach(function (e) {
@@ -89,22 +56,25 @@ runColor = () => {
 		}
 		c.style.backgroundColor = c.querySelector('.colorHexInput').value;
 	});
-	let count = parseInt(document.querySelector('#genCounter').innerHTML);
-	document.querySelector('#genCounter').innerHTML = count + 1;
 };
 
 function colorGeneration(outArr, inArr, amt) {
 	let i = 0;
-
 	while(i < amt) {
 		if(colArray[i].locked === true) {
 			i++;
 		} else {
-			let randomHex = Math.floor(Math.random() * inArr.length);
+			const rCol = (Math.floor(Math.random() * 255));
+			const gCol = (Math.floor(Math.random() * 255));
+			const bCol = (Math.floor(Math.random() * 255));
+			const randomHex = rgbToHex(rCol, gCol, bCol);
 			if(!duplicateTest(outArr, inArr[randomHex])) {
-				outArr[i] = (inArr[randomHex]);
-				outArr[i].locked = false;
+				outArr[i].hex = (randomHex);
+				outArr[i].rgb = {r: rCol, g: gCol, b: bCol};
+				outArr[i].closestColor = findClosestColor(hexToRgb(randomHex), colorDirectory);
 				i++;
+				let count = parseInt(document.querySelector('#genCounter').innerHTML);
+				document.querySelector('#genCounter').innerHTML = count + 1;
 			}
 		}
 	}
@@ -112,26 +82,23 @@ function colorGeneration(outArr, inArr, amt) {
 }
 
 function duplicateTest(y, x) {
-	return Boolean(
-		y.find(function(c) {
+	return Boolean(y.find(function(c) {
 			return c == x;
 		}));
 }
 
 colorDetails = (c) => {
 	let divObj = colArray[c.id];
-	c.querySelector('.colorName').firstChild.textContent = divObj.name;
-	c.querySelector('.colorHexInput').value = colArray[c.id].hex.toUpperCase();
-	c.querySelector('.colorCodeRGB').textContent = (`${divObj.rgb.r} ${divObj.rgb.g} ${divObj.rgb.b}`);
+	c.querySelector('.colorName').firstChild.textContent = divObj.closestColor.name;
+	c.querySelector('.colorHexInput').value = divObj.hex.toUpperCase();
+	c.querySelector('.colorCodeRGB').textContent = `${divObj.rgb.r}, ${divObj.rgb.g}, ${divObj.rgb.b}`;
 };
 
 textContrast = (c) => {
-	let randomHex = colArray[c.id];
-
-	let r = randomHex.rgb.r;
-	let g = randomHex.rgb.g;
-	let b = randomHex.rgb.b;
-
+	let divObj = colArray[c.id];
+	let r = divObj.rgb.r;
+	let g = divObj.rgb.g;
+	let b = divObj.rgb.b;
 	if (r * 0.2126 + g * 0.7152 + b * 0.0722 > 255 / 2) {
 		c.style.color = "#2f3640";
 	} else {
@@ -182,10 +149,9 @@ createInputFunctionality = () => {
 					const newRGB = hexToRgb(newHex);
 					colorToAdd = [findClosestColor(newRGB, colorDirectory)];
 				}
-				c.style.backgroundColor = colorToAdd[0].hex;
-				const previousLock = colArray[c.id].locked;
-				colArray[c.id] = colorToAdd[0];
-				colArray[c.id].locked = previousLock;
+				c.style.backgroundColor = newHex;
+				colArray[c.id].hex = newHex;
+				colArray[c.id].closestColor = colorToAdd[0];
 				colorDetails(c);
 				textContrast(c);
 			} else {
@@ -212,6 +178,15 @@ function hexToRgb(hex) {
 		g: parseInt(result[2], 16),
 		b: parseInt(result[3], 16)
 	} : null;
+}
+
+function componentToHex(c) {
+	var hex = c.toString(16);
+	return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 findClosestColor = (color, arr) => {
